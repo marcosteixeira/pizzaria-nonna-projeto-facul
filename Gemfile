@@ -34,6 +34,10 @@ end
 
 gem 'rails_12factor', group: :production
 
+gem 'devise'
+
+gem 'omniauth-facebook'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 
