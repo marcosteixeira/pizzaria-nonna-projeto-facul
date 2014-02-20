@@ -1,0 +1,8 @@
+<% if model.errors.any? %>
+    <% model.errors.full_messages.each do |msg| %>
+        <div data-alert class="alert-box warning">
+          <%= msg %>
+          <a href="#" class="close">&times;</a>
+        </div>
+    <% end %>
+<% end %>

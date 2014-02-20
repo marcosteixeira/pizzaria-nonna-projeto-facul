@@ -38,6 +38,15 @@ gem 'devise'
 
 gem 'omniauth-facebook'
 
+gem 'foreigner'
+
+gem 'immigrant'
+
+gem 'rails-i18n', '~> 4.0.0'
+
+gem 'devise-i18n-views'
+
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 

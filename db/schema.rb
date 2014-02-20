@@ -11,10 +11,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140218235917) do
+ActiveRecord::Schema.define(version: 20140219112632) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "options", force: true do |t|
+    t.string "code"
+    t.string "name"
+    t.integer "variable_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "products", force: true do |t|
+    t.string "code"
+    t.string "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "products_variables", id: false, force: true do |t|
+    t.integer "product_id"
+    t.integer "variable_id"
+  end
+
+  add_index "products_variables", ["product_id", "variable_id"], name: "index_products_variables_on_product_id_and_variable_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string "email", default: "", null: false
@@ -29,7 +51,6 @@ ActiveRecord::Schema.define(version: 20140218235917) do
     t.string "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean "client", default: true
     t.string "provider"
     t.string "uid"
     t.string "name"
@@ -38,5 +59,17 @@ ActiveRecord::Schema.define(version: 20140218235917) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+
+  create_table "variables", force: true do |t|
+    t.string "code"
+    t.string "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_foreign_key "options", "variables", name: "options_variable_id_fk"
+
+  add_foreign_key "products_variables", "products", name: "products_variables_product_id_fk"
+  add_foreign_key "products_variables", "variables", name: "products_variables_variable_id_fk"
 
 end

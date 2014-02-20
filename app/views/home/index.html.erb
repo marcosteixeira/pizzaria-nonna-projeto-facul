@@ -4,7 +4,7 @@
   </div>
   <div class="large-9 columns menu-pizzaria">
     <ul class="right button-group">
-      <li><a href="#" class="button">Home</a></li>
+      <li><%= link_to "Home", home_index_path, class: "button" %></li>
       <li><a href="#" class="button">Pedido Online</a></li>
       <li><a href="#" class="button">Lojas</a></li>
       <li><a href="#" class="button">Contato</a></li>
@@ -24,9 +24,9 @@
 <div class="row">
   <div class="large-12 columns">
     <ul class="example-orbit" data-orbit>
-      <li><%= image_tag "pizza1.png"%></li>
-      <li><%= image_tag "pizza2.jpg"%></li>
-      <li><%= image_tag "pizza3.jpg"%></li>
+      <li><%= image_tag "pizza1.png" %></li>
+      <li><%= image_tag "pizza2.jpg" %></li>
+      <li><%= image_tag "pizza3.jpg" %></li>
     </ul>
   </div>
 </div>
@@ -38,20 +38,25 @@
 
 <div class="row">
   <div class="large-4 columns">
-    <%= image_tag "massa1.jpg"%>
+    <%= image_tag "massa1.jpg" %>
     <h4>Massas</h4>
-    <p>Conheça as melhores massas da região.<p>
+
+    <p>Conheça as melhores massas da região.
+
+    <p>
   </div>
 
   <div class="large-4 columns">
-    <%= image_tag "salada1.jpg"%>
+    <%= image_tag "salada1.jpg" %>
     <h4>Saladas</h4>
+
     <p>Se você prefere um prato mais leve chegou a hora de aproveitar as nossas saladas.</p>
   </div>
 
   <div class="large-4 columns">
     <%= image_tag "sobremesa1.jpg" %>
     <h4>Sobremesas</h4>
+
     <p>Louco por doces? Confira as nossas deliciosas sobremesas.</p>
   </div>
 
@@ -81,7 +86,7 @@
 
 <footer class="row">
   <div class="large-12 columns">
-    <hr />
+    <hr/>
     <div class="row">
       <div class="large-6 columns">
         <p>© Pizzaria Nonna 2014</p>
