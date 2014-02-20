@@ -1,0 +1,30 @@
+<%= errors @variable %>
+
+<%= form_for(@variable) do |f| %>
+
+    <div class="row">
+      <div class="large-8">
+        <div class="row">
+          <div class="large-3 columns">
+            <%= f.label t("activerecord.attributes.variable.exibition_name"), class: "right inline", for: "text_name" %>
+          </div>
+          <div class="large-9 columns">
+            <%= f.text_field :name, id: "text_name", placeholder: t("activerecord.attributes.variable.name") %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="large-3 columns">
+            <%= f.label t("activerecord.attributes.variable.code"), class: "right inline", for: "text_code" %>
+          </div>
+          <div class="large-9 columns">
+            <%= f.text_field :code, id: "text_code", placeholder: t("activerecord.attributes.variable.code") %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="large-4 columns">
+            <%= f.submit class: "button [radius round]" %>
+          </div>
+        </div>
+      </div>
+    </div>
+<% end %>
