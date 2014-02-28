@@ -138,6 +138,7 @@ pt-BR:
       rename: Renomear
       edit: Editar
       remove: Remover
+      add: Adicionar %{model}
     cancel:
       back: Voltar
   number:

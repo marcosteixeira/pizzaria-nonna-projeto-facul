@@ -46,6 +46,8 @@ gem 'rails-i18n', '~> 4.0.0'
 
 gem 'devise-i18n-views'
 
+gem 'nested_form'
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'

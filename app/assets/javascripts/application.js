@@ -15,3 +15,4 @@
 //= require turbolinks
 //= require vendor/jquery
 //= require foundation.min
+//= require jquery_nested_form

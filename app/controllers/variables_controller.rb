@@ -69,6 +69,6 @@ class VariablesController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def variable_params
-    params.require(:variable).permit(:name, :code)
+    params.require(:variable).permit(:name, :code, options_attributes: [:id, :name, :code, :_destroy])
   end
 end
