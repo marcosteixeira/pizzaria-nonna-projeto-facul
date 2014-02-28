@@ -1,6 +1,33 @@
 <%= notices %>
 <%= errors @variable %>
 
+<p>
+  <strong>Name:</strong>
+  <%= @variable.name %>
+</p>
+
+<p>
+  <strong>Code:</strong>
+  <%= @variable.code %>
+</p>
+
+
+<h1>Options</h1>
+<div>
+  <ol>
+    <% for option in @variable.options %>
+        <p>
+          <strong>Name:</strong>
+          <%= option.name %>
+        </p>
+
+        <p>
+          <strong>Code:</strong>
+          <%= option.code %>
+        </p>
+    <% end %>
+  </ol>
+</div>
 
 <%= link_to 'Edit', edit_variable_path(@variable) %> |
 <%= link_to 'Back', variables_path %>

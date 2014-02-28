@@ -48,6 +48,12 @@ gem 'devise-i18n-views'
 
 gem 'nested_form'
 
+group :development do
+  gem "better_errors"
+  gem "binding_of_caller"
+  gem 'bullet'
+end
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
