@@ -7,9 +7,33 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+
 <div class="row">
-  <div class="large-10 columns">
-    <%= yield %>
+  <div class="large-3 columns">
+    <h1><%= image_tag "logo.png" %></h1>
+  </div>
+  <div class="large-9 columns menu-pizzaria">
+    <ul class="right button-group">
+      <li><%= link_to "Home", home_index_path, class: "button" %></li>
+      <li><a href="#" class="button">Pedido Online</a></li>
+      <li><a href="#" class="button">Lojas</a></li>
+      <li><a href="#" class="button">Contato</a></li>
+      <% if user_signed_in? %>
+          <a href="#" data-dropdown="drop1" class="button dropdown">Administração</a><br>
+          <ul id="drop1" data-dropdown-content class="f-dropdown">
+            <li><%= link_to "Produtos", products_path %></li>
+            <li><%= link_to "Variáveis", variables_path %></li>
+            <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+          </ul>
+      <% else %>
+          <li><%= link_to "Login", new_user_registration_path, class: "button" %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+<div class="row">
+  <div class="large-12 columns">
+  <%= yield %>
   </div>
 </div>
 
