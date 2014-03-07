@@ -1,25 +1,29 @@
-<h1>Listing products</h1>
+<h1>Produtos</h1>
+<%= link_to t("helpers.submit.create", model: t("activerecord.models.product")), new_product_path, class: "button radius" %>
 
-<table>
-  <thead>
-  <tr>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-  </thead>
-
-  <tbody>
-  <% @products.each do |product| %>
+<% if @products.present? %>
+    <table>
+      <thead>
       <tr>
-        <td><%= link_to 'Show', product %></td>
-        <td><%= link_to 'Edit', edit_product_path(product) %></td>
-        <td><%= link_to 'Destroy', product, method: :delete, data: {confirm: 'Are you sure?'} %></td>
+        <th><%= t("activerecord.attributes.product.code") %></th>
+        <th><%= t("activerecord.attributes.product.name") %></th>
+        <th></th>
+        <th></th>
+        <th></th>
       </tr>
-  <% end %>
-  </tbody>
-</table>
+      </thead>
 
-<br>
+      <tbody>
+      <% @products.each do |product| %>
+          <tr>
+            <td><%= product.code %></td>
+            <td><%= product.name %></td>
+            <td><%= link_to 'Mostrar', product %></td>
+            <td><%= link_to 'Editar', edit_product_path(product) %></td>
+            <td><%= link_to 'Apagar', product, method: :delete, data: {confirm: t("general.messages.confirmation")} %></td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
 
-<%= link_to 'New Product', new_product_path %>
+<% end %>

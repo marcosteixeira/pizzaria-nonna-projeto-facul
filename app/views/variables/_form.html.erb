@@ -2,55 +2,44 @@
 
 <%= nested_form_for @variable do |f| %>
 
-    <div class="row">
-      <div class="large-8">
-        <div class="row">
-          <div class="large-3 columns">
-            <%= f.label t("activerecord.attributes.variable.exibition_name"), class: "right inline", for: "text_name" %>
-          </div>
-          <div class="large-9 columns">
-            <%= f.text_field :name, id: "text_name", placeholder: t("activerecord.attributes.variable.name") %>
-          </div>
-        </div>
-        <div class="row">
-          <div class="large-3 columns">
-            <%= f.label t("activerecord.attributes.variable.code"), class: "right inline", for: "text_code" %>
-          </div>
-          <div class="large-9 columns">
-            <%= f.text_field :code, id: "text_code", placeholder: t("activerecord.attributes.variable.code") %>
-          </div>
-        </div>
 
-        <h1>Options</h1>
+    <fieldset>
+      <legend>Variável</legend>
 
-        <%= f.fields_for :options do |option_form| %>
-            <div class="row">
-              <div class="large-3 columns">
-                <%= option_form.label t("activerecord.attributes.option.code"), class: "right inline" %>
-              </div>
-              <div class="large-9 columns">
-                <%= option_form.text_field :code, placeholder: t("activerecord.attributes.option.code") %>
-              </div>
-            </div>
-            <div class="row">
-              <div class="large-3 columns">
-                <%= option_form.label t("activerecord.attributes.option.name"), class: "right inline" %>
-              </div>
-              <div class="large-9 columns">
-                <%= option_form.text_field :name, placeholder: t("activerecord.attributes.option.name") %>
-              </div>
-            </div>
+      <label for="text_code"><%= t("activerecord.attributes.variable.code") %>
+        <%= f.text_field :code, id: "text_code", placeholder: t("activerecord.attributes.variable.code") %>
+      </label>
 
+      <label for="text_name"><%= t("activerecord.attributes.variable.exibition_name") %>
+        <%= f.text_field :name, id: "text_name", placeholder: t("activerecord.attributes.variable.exibition_name") %>
+      </label>
+
+
+      <%= f.fields_for :options do |option_form| %>
+
+          <fieldset>
+            <legend>Opções</legend>
+
+            <label for="option_code"><%= t("activerecord.attributes.option.code") %>
+              <%= option_form.text_field :code, id: "option_code", placeholder: t("activerecord.attributes.option.code") %>
+            </label>
+            <label for="option_name"><%= t("activerecord.attributes.option.name") %>
+              <%= option_form.text_field :name, id: "option_name", placeholder: t("activerecord.attributes.option.name") %>
+            </label>
 
             <%= option_form.link_to_remove t("helpers.submit.remove") %>
-        <% end %>
-        <p><%= f.link_to_add t("helpers.submit.add", model: t("activerecord.models.option")), :options %></p>
+          </fieldset>
+      <% end %>
+      <p><%= f.link_to_add t("helpers.submit.add", model: t("activerecord.models.option")), :options %></p>
 
-        <div class="row">
-          <div class="large-4 columns">
-            <%= f.submit class: "button [radius round]" %>
-          </div>
+      <div class="row">
+        <div class="large-8 columns">
+          <%= f.submit class: "button success radius" %>
+          <%= link_to 'Voltar', variables_path, class: "button small radius secondary" %>
         </div>
       </div>
-    </div>
+    </fieldset>
+
+
+
 <% end %>

@@ -225,17 +225,24 @@ pt-BR:
         name: "Nome"
         code: "Código"
         exibition_name: "Nome para exibição"
-        sucess:
+        success:
           create: "Variável criada com sucesso"
           update: "Variável atualizada com sucesso"
           destroy: "Variável excluída com sucesso"
       option:
         name: "Nome"
         code: "Código"
-        sucess:
+        success:
           create: "Opcão criada com sucesso"
           update: "Opcão atualizada com sucesso"
           destroy: "Opcão excluída com sucesso"
+      product:
+        name: "Nome"
+        code: "Código"
+        success:
+          create: "Produto criado com sucesso"
+          update: "Produto atualizado com sucesso"
+          destroy: "Produto excluído com sucesso"
   general:
     messages:
       confirmation: "Você tem certeza?"

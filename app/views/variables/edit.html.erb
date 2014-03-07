@@ -1,6 +1,5 @@
-<h1>Editing variable</h1>
+<h1><%= @variable.name %></h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @variable %> |
-<%= link_to 'Back', variables_path %>
+<%= link_to 'Mostrar', @variable, class: "button radius" %>

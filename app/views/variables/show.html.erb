@@ -1,33 +1,31 @@
 <%= notices %>
 <%= errors @variable %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @variable.name %>
-</p>
+
+<h1><%= @variable.name %></h1>
 
 <p>
-  <strong>Code:</strong>
+  <strong><%= "#{t("activerecord.attributes.variable.code")}: " %></strong>
   <%= @variable.code %>
 </p>
 
 
-<h1>Options</h1>
+<h3>Opcões</h3>
 <div>
   <ol>
     <% for option in @variable.options %>
         <p>
-          <strong>Name:</strong>
+          <strong><%= "#{t("activerecord.attributes.option.name")}:" %></strong>
           <%= option.name %>
         </p>
 
         <p>
-          <strong>Code:</strong>
+          <strong><%= "#{t("activerecord.attributes.option.code")}:" %></strong>
           <%= option.code %>
         </p>
     <% end %>
   </ol>
 </div>
 
-<%= link_to 'Edit', edit_variable_path(@variable) %> |
-<%= link_to 'Back', variables_path %>
+<%= link_to 'Editar', edit_variable_path(@variable), class: "button radius" %>
+<%= link_to 'Voltar', variables_path, class: "button small radius secondary" %>

@@ -1,29 +1,28 @@
-<h1>Listing variables</h1>
-
-<table>
-  <thead>
-  <tr>
-    <th><%= t("activerecord.attributes.variable.code") %></th>
-    <th><%= t("activerecord.attributes.variable.exibition_name") %></th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-  </thead>
-
-  <tbody>
-  <% @variables.each do |variable| %>
+<h1>Variáveis</h1>
+<%= link_to t("helpers.submit.create", model: t("activerecord.models.variable")), new_variable_path, class: "button radius" %>
+<% if @variables.present? %>
+    <table>
+      <thead>
       <tr>
-        <td><%= variable.code %></td>
-        <td><%= variable.name %></td>
-        <td><%= link_to 'Show', variable %></td>
-        <td><%= link_to 'Edit', edit_variable_path(variable) %></td>
-        <td><%= link_to 'Destroy', variable, method: :delete, data: {confirm: 'Are you sure?'} %></td>
+        <th><%= t("activerecord.attributes.variable.code") %></th>
+        <th><%= t("activerecord.attributes.variable.exibition_name") %></th>
+        <th></th>
+        <th></th>
+        <th></th>
       </tr>
-  <% end %>
-  </tbody>
-</table>
+      </thead>
 
-<br>
+      <tbody>
+      <% @variables.each do |variable| %>
+          <tr>
+            <td><%= variable.code %></td>
+            <td><%= variable.name %></td>
+            <td><%= link_to 'Mostrar', variable %></td>
+            <td><%= link_to 'Editar', edit_variable_path(variable) %></td>
+            <td><%= link_to 'Apagar', variable, method: :delete, data: {confirm: t("general.messages.confirmation")} %></td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
 
-<%= link_to t("helpers.submit.create", model: t("activerecord.models.variable")), new_variable_path %>
+<% end %>
